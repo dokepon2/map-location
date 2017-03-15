@@ -1,11 +1,11 @@
-export default function signUser(user){
+export function SignInUser(user){
     return {
         type: 'SIGNIN_USER',
         payload: user
     }
 }
 
-export default function SignoutUser(){
+export function SignOutUser(){
     return {
         type: 'CLEAR_USER',
         payload: null

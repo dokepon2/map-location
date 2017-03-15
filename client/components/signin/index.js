@@ -5,15 +5,19 @@ import Paper from 'material-ui/Paper';
 import FacebookBox from 'material-ui-community-icons/icons/facebook-box';
 import RaisedButton from 'material-ui/RaisedButton';
 import firebase from '../../config'
-
+import { connect } from 'react-redux';
+import { SignInUser } from '../../lib/actions/signinAction';
 
 class Signin extends React.Component {
 
     componentWillMount() {
         firebase.auth().onAuthStateChanged(user => {
-            if(user){
+            if (user) {
+                console.log(user.displayName)
+                console.log(user.email)
+                console.log(user.photoURL)
                 console.log(user)
-            }else{
+            } else {
                 console.log('no have user')
             }
         })
@@ -26,7 +30,6 @@ class Signin extends React.Component {
             .then((result) => {
                 let token = result.credential.accessToken;
                 let user = result.user;
-                console.log(user)
 
             }).catch((error) => {
                 let errorCode = error.code;
@@ -34,6 +37,7 @@ class Signin extends React.Component {
                 let email = error.email;
                 let credential = error.credential;
             });
+
     }
 
     handleLogout() {
