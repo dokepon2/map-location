@@ -6,7 +6,6 @@ import styles from './main.css';
 class App extends React.Component {
 	
 	render() {
-
 		return (
 			<div>
 				<div>
