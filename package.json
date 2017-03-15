@@ -32,6 +32,7 @@
     "axios": "^0.15.3",
     "classnames": "^2.2.5",
     "express": "^4.14.0",
+    "firebase": "^3.7.2",
     "flexboxgrid": "^6.3.1",
     "material-ui": "^0.17.0",
     "material-ui-community-icons": "^0.15.0",
