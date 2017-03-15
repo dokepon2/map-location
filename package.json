@@ -34,6 +34,7 @@
     "express": "^4.14.0",
     "flexboxgrid": "^6.3.1",
     "material-ui": "^0.17.0",
+    "material-ui-community-icons": "^0.15.0",
     "meteor-random": "0.0.3",
     "moment": "^2.17.1",
     "react": "^15.3.0",
