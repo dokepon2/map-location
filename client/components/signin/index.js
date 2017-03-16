@@ -14,8 +14,6 @@ class Signin extends React.Component {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.props.dispatch(SignInUser(user));
-            } else {
-                console.log('no have user')
             }
         })
     }
