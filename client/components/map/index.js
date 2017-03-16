@@ -19,12 +19,12 @@ class Map extends Component {
                     <Marker
                         lat={18.799787}
                         lng={99.023660}
-                        text={'P'}
+                        images={'https://static.giantbomb.com/uploads/scale_medium/0/6948/1757649-me_avatar_big.png'}
                     />
                     <Marker
-                        lat={18.7990674}
-                        lng={99.023729}
-                        text={'K'}
+                        lat={18.8}
+                        lng={99.03}
+                        images={'http://www.vnfestivaltour.com.vn/images/blog/avata.png'}
                     />
                 </GoogleMapReact>
             </div>

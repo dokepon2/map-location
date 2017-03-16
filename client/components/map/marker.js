@@ -20,7 +20,7 @@ export default class Maker extends Component {
         return (
             <div>
                 <div className={styles.MarkerStyle}>
-                    {this.props.text}
+                    <img src={this.props.images} className={styles.img_avatar} />
                 </div>
                 <div className={styles.MarkerStickStyle}></div>
             </div>
