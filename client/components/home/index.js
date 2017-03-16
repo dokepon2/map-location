@@ -4,10 +4,24 @@ import styles from './styles.css';
 import Signin from '../signin/index';
 import { connect } from 'react-redux';
 
+import Map from '../map';
+
 class Home extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            
+        }
+    }
     render() {
         return (
-            <Signin />
+            <Grid>
+                <Row>
+                    <Col xs={12}>
+                        <Signin />
+                    </Col>
+                </Row>          
+            </Grid>
         )
     }
 }
