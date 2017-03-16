@@ -16,7 +16,7 @@ export default class Maker extends Component {
     }
 
     render() {
-
+        console.log(this.props.images)
         return (
             <div>
                 <div className={styles.MarkerStyle}>

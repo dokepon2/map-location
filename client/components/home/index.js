@@ -16,7 +16,7 @@ class Home extends React.Component {
 
     renderOnLogin() {
         return (
-            <Map />
+            <Map user={this.props.user.providerData[0]} />
         )
     }
 
