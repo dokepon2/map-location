@@ -13,24 +13,20 @@ class Signin extends React.Component {
     componentWillMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                console.log(user.displayName)
-                console.log(user.email)
-                console.log(user.photoURL)
-                console.log(user)
+                this.props.dispatch(SignInUser(user));
             } else {
                 console.log('no have user')
             }
         })
     }
 
-    handleAuth() {
-        var provider = new firebase.auth.GoogleAuthProvider();
+    handleAuthFacebook() {
+        let provider = new firebase.auth.FacebookAuthProvider();
 
-        firebase.auth().signInWithPopup(provider)
+        let authFacebook = firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                let token = result.credential.accessToken;
-                let user = result.user;
-
+                var token = result.credential.accessToken;
+                var user = result.user;
             }).catch((error) => {
                 let errorCode = error.code;
                 let errorMessage = error.message;
@@ -40,7 +36,7 @@ class Signin extends React.Component {
 
     }
 
-    handleLogout() {
+    handleLogoutFacebook() {
         firebase.auth().signOut().then(function () {
             console.log('user has disconnect')
         }).catch(function (error) {
@@ -55,7 +51,7 @@ class Signin extends React.Component {
                     <Col xs={4}>
                         <Paper zDepth={3} className={styles.paperSignin}>
                             <RaisedButton
-                                onTouchTap={this.handleAuth.bind(this)}
+                                onTouchTap={this.handleAuthFacebook.bind(this)}
                                 label="Sign in with Facebook"
                                 primary={true}
                                 icon={<FacebookBox />}
@@ -69,4 +65,7 @@ class Signin extends React.Component {
     }
 }
 
-export default Signin;
+
+
+
+export default connect()(Signin);
