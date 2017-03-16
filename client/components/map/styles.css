@@ -11,12 +11,3 @@
   padding: 4px;
   cursor: pointer;
 }
-
-.MarkerStickStyle {
-  position: absolute;
-  left: 27px;
-  top: 38px;
-  width: 5px;
-  height: 20px;
-  background-color: #f44336;
-}

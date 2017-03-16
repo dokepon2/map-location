@@ -13,18 +13,14 @@ class Map extends Component {
         return (
             <div style={{ width: '100%', height: '800px' }}>
                 <GoogleMapReact
+                    bootstrapURLKeys={{ key: 'AIzaSyBvteWWaHrM4U45kOLaRxWZSlT7jsXNu1A', }}
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
                     <Marker
                         lat={18.799787}
                         lng={99.023660}
-                        text={'P'}
-                    />
-                    <Marker
-                        lat={18.7990674}
-                        lng={99.023729}
-                        text={'K'}
+                        text={`AM HERE`}
                     />
                 </GoogleMapReact>
             </div>

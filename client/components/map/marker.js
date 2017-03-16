@@ -22,7 +22,6 @@ export default class Maker extends Component {
                 <div className={styles.MarkerStyle}>
                     {this.props.text}
                 </div>
-                <div className={styles.MarkerStickStyle}></div>
             </div>
         );
     }
