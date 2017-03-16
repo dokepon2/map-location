@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import firebase from '../../config.js'
 import Marker from './marker';
 
 
@@ -8,6 +9,37 @@ class Map extends Component {
         center: { lat: 18.799787, lng: 99.023660 },
         zoom: 15
     };
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            center: { lat: null, lng: null },
+            zoom: 15
+        }
+    }
+
+    componentWillMount() {
+        const userId = firebase.auth().currentUser.uid;
+        const geolocation = navigator.geolocation
+        function getLocation() {
+            return new Promise((resolve, reject) => {
+                geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: false, maximumAge: 10000 })
+            });
+        }
+
+       //setInterval(() => { 
+            console.log('update location')
+            getLocation()
+            .then((data) => {
+                console.log('store in firebase')
+                firebase.database().ref(`profiles/${userId}`).set({
+                    lat: data.coords.latitude,
+                    lng: data.coords.longitude,
+                    timestamp: data.timestamp
+                });
+            })
+        //}, 5000)
+    }
 
     render() {
         return (

@@ -3,7 +3,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import styles from './styles.css';
 import Signin from '../signin/index';
 import { connect } from 'react-redux';
-
 import Map from '../map';
 
 class Home extends React.Component {
@@ -13,6 +12,7 @@ class Home extends React.Component {
 
         }
     }
+
 
     renderOnLogin() {
         return (
