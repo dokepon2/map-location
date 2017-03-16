@@ -10,19 +10,31 @@ class Home extends React.Component {
     constructor() {
         super()
         this.state = {
-            
+
         }
     }
-    render() {
+
+    renderOnLogin() {
         return (
-            <Grid>
-                <Row>
-                    <Col xs={12}>
-                        <Signin />
-                    </Col>
-                </Row>          
-            </Grid>
+            <Map />
         )
+    }
+
+
+    render() {
+        if (this.props.user) {
+            return this.renderOnLogin()
+        } else {
+            return (
+                <Grid>
+                    <Row>
+                        <Col xs={12}>
+                            <Signin />
+                        </Col>
+                    </Row>
+                </Grid>
+            )
+        }
     }
 }
 

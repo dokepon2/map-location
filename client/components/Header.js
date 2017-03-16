@@ -14,21 +14,12 @@ import firebase from '../config'
 
 class Header extends React.Component {
 
-    componentWillMount() {
-        firebase.auth().onAuthStateChanged(user => {
-            if (!user) {
-                this.props.dispatch(SignOutUser());
-            }
-        })
-    }
-
     handleLogoutFacebook() {
         firebase.auth().signOut()
             .then(function () {
-                console.log('user has disconnect')
-            }).catch(function (error) {
-                console.log(`Error: ${error.message} , ${error.code}`)
-            });
+
+            })
+        this.props.dispatch(SignOutUser());
     }
 
     renderWithUser() {
@@ -54,24 +45,22 @@ class Header extends React.Component {
         )
     }
 
-
     render() {
-        if(this.props.user){
+        if (this.props.user) {
             return this.renderWithUser()
-        }else{
+        } else {
             return (
-            <AppBar
-                iconElementLeft={
-                    <IconButton href="/">
-                        <ActionHome color={grey50} />
-                    </IconButton>
-                }
-            />
-        )
+                <AppBar
+                    iconElementLeft={
+                        <IconButton href="/">
+                            <ActionHome color={grey50} />
+                        </IconButton>
+                    }
+                />
+            )
         }
     }
 }
-
 
 export default connect((store) => {
     return {

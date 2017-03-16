@@ -6,17 +6,10 @@ import FacebookBox from 'material-ui-community-icons/icons/facebook-box';
 import RaisedButton from 'material-ui/RaisedButton';
 import firebase from '../../config'
 import { connect } from 'react-redux';
-import { SignInUser } from '../../lib/actions/signinAction';
+
 
 class Signin extends React.Component {
 
-    componentWillMount() {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.props.dispatch(SignInUser(user));
-            }
-        })
-    }
 
     handleAuthFacebook() {
         let provider = new firebase.auth.FacebookAuthProvider();
@@ -33,15 +26,7 @@ class Signin extends React.Component {
             });
 
     }
-
-    handleLogoutFacebook() {
-        firebase.auth().signOut().then(function () {
-            console.log('user has disconnect')
-        }).catch(function (error) {
-            console.log(`Error: ${error.message}`)
-        });
-    }
-
+    
     render() {
         return (
             <Grid>
