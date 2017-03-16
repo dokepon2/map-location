@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Provider } from 'react-redux';
+import store from './lib/store';
 
 
 import App from './App';
@@ -14,10 +16,12 @@ injectTapEventPlugin();
 
 render((
     <MuiThemeProvider>
-        <Router history={browserHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={Home} />
-                <Route path="*" component={PageNotFound} />
-            </Route>
-        </Router>
+        <Provider store={store}>
+            <Router history={browserHistory}>
+                <Route path="/" component={App}>
+                    <IndexRoute component={Home} />
+                    <Route path="*" component={PageNotFound} />
+                </Route>
+            </Router>
+        </Provider>
     </MuiThemeProvider>), document.getElementById('app'));
