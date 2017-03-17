@@ -4,6 +4,7 @@ import styles from './styles.css';
 import Signin from '../signin/index';
 import { connect } from 'react-redux';
 import LoadingState from '../Loading';
+import firebase from '../../config'
 
 import Map from '../map';
 
@@ -16,8 +17,18 @@ class Home extends React.Component {
     }
 
     componentWillMount() {
-        this.setState({ loading: true });
+        let self = this
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+
+            }
+            self.setState({
+                loading: true
+            })
+        })
+
     }
+
 
     renderOnLogin() {
         return (
@@ -31,33 +42,36 @@ class Home extends React.Component {
 
         )
     }
+    renderNotLogin() {
+        return (
+            <Grid>
+                <Row>
+                    <Col xs={12}>
+                        <Signin />
+                    </Col>
+                </Row>
+            </Grid>
 
-    LoginOutState() {
-        console.log()
+        )
     }
 
-
     render() {
-        if (this.props.user) {
-            return this.renderOnLogin()
-        } else {
+        if (this.state.loading) {
+            if (this.props.user) {
+                return this.renderOnLogin()
+            }
+            else {
+                return this.renderNotLogin()
+            }
+        }
+        else {
             return (
-                <Grid>
-                    <Row>
-                        <Col xs={12}>
-                            {
-                                this.state.loading &&
-                                <LoadingState />
-                            }
-                            {
-                                !this.state.loading &&
-                                <Signin />
-                            }
-                        </Col>
-                    </Row>
-                </Grid>
+                <div>
+                    <LoadingState />
+                </div>
             )
         }
+
     }
 }
 
