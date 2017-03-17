@@ -1,4 +1,4 @@
-export default function reducer (state=null, action) {
+export default function reducer (state = null, action) {
     switch (action.type) {
         case 'SIGNIN_USER':
             return action.payload;
