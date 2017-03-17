@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import firebase from '../../config.js';
 import _ from 'underscore';
 import Marker from './marker';
@@ -96,7 +97,13 @@ class Map extends Component {
 
                         </GoogleMapReact>
                     ):( 
-                        <CircularProgress size={200} thickness={10} />
+                        <Grid>
+                            <Row center="xs">
+                                <Col xs={12}>
+                                    <CircularProgress size={200} thickness={10} />
+                                </Col>
+                            </Row>
+                        </Grid>
                     )
                 }
             </div>

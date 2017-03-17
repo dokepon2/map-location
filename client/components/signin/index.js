@@ -31,7 +31,7 @@ class Signin extends React.Component {
         return (
             <Grid>
                 <Row center="xs">
-                    <Col xs={4}>
+                    <Col xs={10} sm={4} md={4} lg={4}>
                         <Paper zDepth={3} className={styles.paperSignin}>
                             <RaisedButton
                                 onTouchTap={this.handleAuthFacebook.bind(this)}
